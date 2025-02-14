@@ -1,0 +1,289 @@
+{% include 'header.html' %}
+<body>
+    <div class="container-fluid bg-dark">
+        <!-- <pre>{{user}}</pre> -->
+        <div class="row">
+            {% include 'sidebar.html' %}
+            <div class="col-md-10 d-flex p-5 justify-content-center bg-light flex-wrap">
+                <div class="col-md-12 p-4">
+                    <a href="javascript:history.back()" class="btn btn-warning btn-sm text-white"  style=" width: 10%;">Vrati se nazad</a>
+                </div>
+                
+                <div class="col-md-12 bg-light">
+                    <form method="post">
+                        <h3 class="m-4 ">Dodaj novo vozilo</h3>
+                        <div class="row m-3">
+                          <div class="col-md-2">
+                            <label for=""><b>Stanje vozila</b></label>
+                            <select name="stanje" class="form-select">
+                              <option value="">Odaberite stanje vozila</option>
+                              <option value="novo">Novo</option>
+                              <option value="kao_novo">Kao Novo</option>
+                              <option value="polovno">Polovno</option>
+                            </select>
+                            <!-- <input type="text" class="form-control" placeholder="Unesite stanje" name="stanje"> -->
+                          </div>
+                          <div class="col-md-2">
+                            <label for=""><b>Marka vozila</b></label>
+                            <input type="text" class="form-control" placeholder="Unesite marku vozila" name="marka">
+                          </div>
+                          <div class="col-md-2">
+                            <label for=""><b>Model</b></label>
+                            <input type="text" class="form-control" placeholder="Unesite model vozila" name="model">
+                          </div>
+                          <div class="col-md-2">
+                            <label for=""><b>Godina proizvodnje</b></label>
+                            <input type="number" class="form-control" placeholder="Unesite godiste" name="godiste">
+                          </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-md-2">
+                              <label for=""><b>Kilometraza</b></label>
+                              <input type="number" class="form-control" placeholder="Unesite broj kilometara" name="kilometraza">
+                            </div>
+                            <div class="col-md-2">
+                              <label for=""><b>Karoserija</b></label>
+                              <!-- <input type="text" class="form-control" placeholder="Unesite karoseriju" name="karoserija"> -->
+                              <select name="karoserija" id="" class="form-select">
+                                <option value="">Odaberite karoseriju</option>
+                                <option value="limuzina">Limuzina</option>
+                                <option value="hedzbek">Hedzbek</option>
+                                <option value="karavan">Karavan</option>
+                                <option value="kupe">Kupe</option>
+                                <option value="kabriolet_roadster">Kabriolet/Roadster</option>
+                                <option value="minivan">Monovolumen (MiniVan)</option>
+                                <option value="suv">Dzip/SUV</option>
+                                <option value="pickup">Pickup</option>
+                              </select>
+                            </div>
+                            <div class="col-md-2">
+                              <!-- <input type="text" class="form-control" placeholder="Unesite gorivo" name="gorivo"> -->
+                              <label for=""><b>Gorivo</b></label>
+                              <select name="gorivo" class="form-select" id="">
+                                <option value="">Odaberite vrstu goriva</option>
+                                <option value="benzin">Benzin</option>
+                                <option value="dizel">Dizel</option>
+                                <option value="tng">Benzin + Gas (TNG)</option>
+                                <option value="cng">Benzin + Metan (CNG)</option>
+                                <option value="elektricni">Elektricni pogon</option>
+                                <option value="hibridni">Hibridni pogon</option>
+                              </select>
+                            </div>
+                            <div class="col-md-2">
+                              <label for=""><b>Kubikaza (cm<sup>3</sup>)</b></label>
+                              <input type="int" class="form-control" placeholder="Unesite zapreminu motora" name="kubikaza">
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-md-2">
+                              <label for=""><b>Snaga motora (kW/KS)</b></label>
+                              <input type="int" class="form-control" placeholder="Unesite snagu motora" name="snaga">
+                            </div>
+                            <div class="col-md-2">
+                              <label for=""><b>Fiksna cena</b></label>
+                              <!-- <input type="text" class="form-control" placeholder="Unesite fiksnu cenu (DA/NE)" name="fiksna_cena"> -->
+                              <select name="fiksna_cena" class="form-select" id="">
+                                <option value="">Odaberite</option>
+                                <option value="da">Da</option>
+                                <option value="ne">Ne</option>
+                              </select>
+                            </div>
+                            <div class="col-md-2">
+                              <!-- <input type="text" class="form-control" placeholder="Zamena (DA/NE)" name="zamena"> -->
+                              <label for=""><b>Mogucnost zamene</b></label>
+                              
+                              <select name="zamena" class="form-select" id="">
+                                <option value="">Odaberite</option>
+                                <option value="da">Da</option>
+                                <option value="ne">Ne</option>
+                              </select>
+                            </div>
+                            <div class="col-md-2">
+                              <label for=""><b>Broj sasije</b></label>
+                              <input type="text" class="form-control" placeholder="Unesite broj sasije" name="broj_sasije">
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-md-2">
+                              <label for=""><b>Emisiona klasa motora</b></label>
+                              
+                              <select name="klasa_motora" class="form-select" id="">
+                                <option value="">Odaberite klasu</option>
+                                <option value="euro_4">Euro 4</option>
+                                <option value="euro_5">Euro 5</option>
+                                <option value="euro_6">Euro 6</option>
+                              </select>
+                             
+                            </div>
+                            <div class="col-md-2">
+                              <label for=""><b>Pogon</b></label>
+                              
+                              <select name="pogon" class="form-select" id="">
+                                <option value="">Odaberite vrstu pogona</option>
+                                <option value="prednji">Prednji pogon</option>
+                                <option value="zadnji">Zadnji</option>
+                                <option value="4x4">Na 4 tocka (4x4)</option>
+                              </select>
+                              
+                            </div>
+                            <div class="col-md-2">
+                              <label for=""><b>Menjac</b></label>
+                              <!-- <input type="text" class="form-control" placeholder="Unesite tip menjaca" name="menjac"> -->
+                              <select name="menjac" id="menjac" class="form-select">
+                                <option value="">Izaberite tip menjača</option>
+                                <option value="manuelni">Manuelni</option>
+                                <option value="automatski">Automatski</option>
+                                <option value="poluautomatski">Poluautomatski</option>
+                                <option value="cvt">CVT (beskonačno promenljiv)</option>
+                                <option value="duplo-kv">Duplo kvačilo (DCT)</option>
+                                <option value="sekvencijalni">Sekvencijalni</option>
+                            </select>
+                            </div>
+                            <div class="col-md-2">
+                              <label for=""><b>Broj vrata</b></label>
+                              <select name="broj_vrata" id="broj_vrata" class="form-select">
+                                <option value="">Izaberite broj vrata</option>
+                                <option value="2">2 vrata</option>
+                                <option value="3">3 vrata</option>
+                                <option value="4">4 vrata</option>
+                                <option value="5">5 vrata</option>
+                              </select>
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-md-2">
+                              <label for=""><b>Broj sedista</b></label>
+                              <select name="broj_sedista" id="broj_sedista" class="form-select">
+                                <option value="">Izaberite broj sedišta</option>
+                                <option value="2">2 sedišta</option>
+                                <option value="4">4 sedišta</option>
+                                <option value="5">5 sedišta</option>
+                                <option value="7">7 sedišta</option>
+                                <option value="8">8 sedišta</option>
+                              </select>
+                              
+                            </div>
+                            <div class="col-md-2">
+                              <label for=""><b>Volan</b></label>
+                              <select name="strana_volana" id="strana_volana" class="form-select">
+                                  <option value="">Izaberite stranu volana</option>
+                                  <option value="levi">Levi</option>
+                                  <option value="desni">Desni</option>
+                              </select>
+                              
+                            </div>
+                            <div class="col-md-2">
+                              <label for=""><b>Klima</b></label>
+                              <select name="klima" id="klima" class="form-select">
+                                  <option value="">Izaberite opciju klime</option>
+                                  <option value="bez_klime">Bez klime</option>
+                                  <option value="man_klima">Manuelna klima</option>
+                                  <option value="aut_klima">Automatska klima</option>
+                              </select>
+                            </div>
+                            <div class="col-md-2">
+                              <label for=""><b>Otkup na lizing</b></label>
+                              <select name="lizing" id="otkup_na_lizing" class="form-select">
+                                  <option value="">Izaberite opciju</option>
+                                  <option value="da">Da</option>
+                                  <option value="ne">Ne</option>
+                              </select>
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-md-2">
+                              <label for=""><b>Boja</b></label>
+                              <input type="text" class="form-control" placeholder="Unesite boju" name="boja">
+                            </div>
+                            <div class="col-md-2">
+                              <label for=""><b>Materijal enterijera</b></label>
+                              <input type="text" class="form-control" placeholder="Unesite materijal enterijera" name="materijal_enterijera">
+                            </div>
+                            <div class="col-md-2">
+                              <label for=""><b>Boja enterijera</b></label>
+                              <input type="text" class="form-control" placeholder="Unesite boju enterijera" name="boja_enterijera">
+                            </div>
+                            <div class="col-md-2">
+                              <label for=""><b>Registrovan do</b></label>
+                              <input type="text" class="form-control" placeholder="'mm.gggg'" name="registrovan_do">
+                            </div>
+                        </div>
+                        <div class="row m-3">
+                            <div class="col-md-2">
+                              <label for=""><b>Poreklo vozila</b></label>
+                              <select name="poreklo_vozila" id="poreklo_vozila" class="form-select">
+                                  <option value="">Izaberite poreklo vozila</option>
+                                  <option value="srbija">Srbija</option>
+                                  <option value="holandija">Holandija</option>
+                                  <option value="nemacka">Nemačka</option>
+                                  <option value="austrija">Austrija</option>
+                                  <option value="belgija">Belgija</option>
+                                  <option value="francuska">Francuska</option>
+                                  <option value="it" >Italija</option>
+                                  <option value="svedska">Švedska</option>
+                                  <option value="danska">Danska</option>
+                              </select>
+                            </div>
+                            <div class="col-md-2">
+                              <label for=""><b>Vlasništvo vozila</b></label>
+                              <select name="vlasnistvo" id="vlasnistvo" class="form-select">
+                                  <option value="">Izaberite vlasništvo </option>
+                                  <option value="prvi_vlasnik">Prvi vlasnik</option>
+                                  <option value="drugi_vlasnik">Drugi vlasnik</option>
+                                  <option value="treci_vlasnik">Treći vlasnik</option>
+                                  <option value="u_lizingu">U lizingu</option>
+                              </select>
+                            </div>
+                            <div class="col-md-2">
+                              <label for=""><b>Kupovina na kredit</b></label>
+                              <select name="kredit" id="kupovina_na_kredit" class="form-select">
+                                  <option value="">Izaberite opciju</option>
+                                  <option value="da">Da</option>
+                                  <option value="ne">Ne</option>
+                              </select>
+                            </div>
+                            
+                            
+                        </div>
+                        
+                        <div class="row m-3 d-flex">
+                          <div class="col-md-4">
+                            <label for=""><b>Oprema</b></label>
+                            <textarea name="oprema" placeholder="Unesite spisak opreme" id=""  rows="6" cols="61"></textarea> 
+                          </div>
+                          <div class="col-md-4">
+                            <label for=""><b>Ostecenja</b></label>
+                            <textarea name="ostecenje" placeholder="Unesite ostecenja" id=""  rows="6" cols="61"></textarea>
+                          </div>
+                          
+                        </div>
+                        <div class="row m-3 d-flex">
+                          <div class="col-md-4">
+                            <label for=""><b>Sigurnost</b></label>
+                            <textarea name="sigurnost" placeholder="Unesite sigurnosnu opremu" id=""  rows="6" cols="61"></textarea>
+                          </div>
+                          
+                          <div class="col-md-4">
+                            <label for=""><b>Opis</b></label>
+                            <textarea name="opis" placeholder="Unesite opis vozila" id=""  rows="6" cols="61"></textarea>
+                          </div>
+                        </div>
+                        <div class="row m-3">                   
+                          <div class="col-md-3">
+                              <label for=""><b>Cena</b></label>
+                              <input type="text" class="form-control" placeholder="'Unesite cenu'" name="cena">
+                          </div>
+                        </div>
+                        <div class="d-flex justify-content-start">
+                          <button  class="btn btn-warning text-white btn-md m-4 col-md-5">Dodaj automobil</button>
+                        </div> 
+                    </form> 
+                     
+                </div>
+                        
+                    
+            </div>
+        </div>
+    </div>
+</body>
+</html>

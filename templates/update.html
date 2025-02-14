@@ -1,0 +1,82 @@
+{% include 'header.html' %}
+<body>
+    
+    <div class="container-fluid" style="height: 100vh;">
+        
+        <!-- <pre>{{user}}</pre> -->
+        <div class="row">
+
+            {% include 'sidebar.html' %}
+            
+            <div class="col-md-10 d-flex justify-content-start bg-light flex-column">
+                <div class="col-md-2 p-4">
+                    <a href="javascript:history.back()" class="btn btn-warning text-white btn-sm"  style=" width: 80%;">Vrati se nazad</a>
+                </div>
+                <div class="col-md-10 bg-light ">
+                    <div class="container  p-4 d-flex justify-content-center flex-wrap ">
+
+                        <div class="card bg-light" style="width:40%">
+                          <div class="card-body d-flex justify-content-center flex-column text-center">
+                           
+                            <h4 class="card-title  text-center">Azuriranje korisnika</h4>
+                            <hr>
+                            
+
+
+                            <form method="post" class="d-flex justify-content-center flex-column text-center">
+                                <span class="m-2 text-danger"><b>{{greska}}</b></span>
+                            
+                                <input type="text" class="form-control form-control-md m-2 mw-100" placeholder="Email" name="email" value="{{korisnik.get_email()}}">
+                                <input type="text" class="form-control form-control-md m-2 mw-100" placeholder="Username" name="username" value="{{korisnik.get_username()}}">
+                                <input type="text" class="form-control form-control-md m-2 mw-100" placeholder="Sifra" name="password" value="{{korisnik.get_password()}}">
+                                <!-- <input type="text" class="form-control form-control-md m-2 mw-100" placeholder="Ponovite sifru" name="repassword"> -->
+                                <hr>
+                                <label for="privilegija" class="m-2">Odaberite privilegiju:</label>
+                                <select class="form-select mt-3 m-2" name="privilegija" value="{{korisnik.get_privilegija()}}">
+                                    <option value="admin">Admin</option>
+                                    <option value="editor">Editor</option>
+                                    <option value="user">User</option>
+                                </select>
+                                <button class="btn btn-warning text-white btn-sm m-2">Azuriraj</button>
+                                
+                            </form>
+                            
+                          </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

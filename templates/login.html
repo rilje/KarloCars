@@ -1,0 +1,20 @@
+{% include 'header.html' %}
+<body>
+    <div class="container-fluid bg-dark" style="height: 100vh;">
+        <div class="row d-flex justify-content-center ">
+            <div class="col-md-3 bg-light p-4 d-flex justify-content-center flex-column mt-5">
+                <form method="post" class="d-flex justify-content-center flex-column ">
+                    <span class="m-2 text-danger"><b>{{greska}}</b></span>
+                    <input type="text" class="form-control form-control-md m-2 mw-100" placeholder="Username" name="username">
+                    <input type="password" class="form-control form-control-md m-2 mw-100" placeholder="Sifra" name="password">
+                    <button class="btn btn-primary btn-sm m-2">Log in</button>
+                    <span class="m-2"><a href="/registracija"><i>Nemas nalog? Registruj se ovde...</i></a></span>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

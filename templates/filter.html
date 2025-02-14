@@ -1,0 +1,118 @@
+{% include 'header.html' %}
+<body class="bg-dark">
+
+    <div class="container-fluid" style="height: 100vh;">
+      <div class="row">
+          {% include 'sidebar.html' %}
+          <div class="col-md-10 d-flex justify-content-start flex-column bg-light p-4" style= "border: solid white thin;">
+            
+            <a href="javascript:history.back()" class="btn btn-warning text-white ms-3 btn-sm"  style=" width: 10%;">Vrati se nazad</a>
+                
+              <div class="row m-3 bg-light border p-4 d-flex justify-content-center" >
+
+                
+
+                <div class=" d-flex justify-content-end" style=" width: 62%;">
+
+                  <!-- DIV ZA DUGME DODAJ NOVOG KORISNIKA-->
+                  <!-- ## DIV ZA DUGME DODAJ NOVOG KORISNIKA ## -->
+
+
+                  
+                  <!-- PRETRAGA SORT FILRER DIV-->
+                  <div class="col-md-8 d-flex justify-content-between align-items-center"> 
+                    <div class="col-md-12 p-2 text-end align-items-center d-flex justify-content-end">
+                      <div>
+                          <form action="/pretraga" method="post" class="d-flex gap-2">
+                            <p>
+                              <input type="text" class="form-control" placeholder="Pretrazi po imenu..." name="upit" style="width: 100%;">
+                            </p>
+                            <button class="btn btn-warning text-white btn-md " style="height: 4%;">Trazi</button> 
+                          </form>
+                      </div>
+                    </div>
+                    
+                  </div>               
+                  <!-- ## PRETRAGA SORT FILRER DIV ##-->
+                </div>
+
+                
+                <div class="d-flex justify-content-between" style="width: 65%;">
+                  <div class="m-2">
+                    <a href="/dodaj_korisnika" class="text-end"><button class="btn btn-warning text-white  btn-sm">Dodaj korisnika</button></a>
+                  </div>
+                  <div class="d-flex justify-content-end">
+                    <div class="dropdown dropend  col-md-4 m-1">
+                      <button type="button" class="btn btn-dark text-warning btn-sm dropdown-toggle m-1 col-md-12" data-bs-toggle="dropdown">
+                        Sort
+                      </button>
+                      <ul class="dropdown-menu bg-dark border border-1">
+                        <li><a class="dropdown-item text-warning" href="/sortiraj/1" >Email <i class="material-icons">&#xe5d8;</i></a></li>
+                        <li><a class="dropdown-item text-warning" href="/sortiraj/2">Username <i class="material-icons">&#xe5d8;</i></a></li>
+                        <li><a class="dropdown-item text-warning" href="/sortiraj/3">Privilegija <i class="material-icons">&#xe5d8;</i></a></li>
+                        <!-- <li><a class="dropdown-item active" href="#">Active</a></li> -->
+                        <!-- <li><a class="dropdown-item disabled" href="#">Disabled</a></li> -->
+                      </ul>
+                    </div>
+                    <div class="dropdown dropend col-md-4 m-1">
+                      <button type="button" class="btn btn-dark text-warning dropdown-toggle btn-sm m-1 col-md-12" data-bs-toggle="dropdown">
+                        Filter
+                      </button>
+                      <ul class="dropdown-menu  bg-dark border border-1">
+                        <li><a class="dropdown-item text-warning" href="/filtriraj/1">Admin <i class="material-icons">&#xe5d8;</i></a></li>
+                        <li><a class="dropdown-item text-warning" href="/filtriraj/2">Editor <i class="material-icons">&#xe5d8;</i></a></li>
+                        <li><a class="dropdown-item text-warning" href="/filtriraj/3">User <i class="material-icons">&#xe5d8;</i></a></li>
+                        
+                      </ul>
+                    </div>
+                    <div class="col-md-6 m-2">
+                      <a href="/svi_korisnici"><button class="btn btn-danger text-white  btn-sm">Ponisti filtere</button></a>
+                    </div>
+                  </div>
+                  
+                </div>
+                <table class="table table-hover " style="width: 62%;">
+                  
+                    
+                  
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Email</th>
+                      <th>Username</th>
+                      <th>Password</th>
+                      <th>Privilegija</th>
+                      <th colspan="3"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for korisnik in korisnici %}
+                    <tr>
+                      <td>{{korisnik.get_id()}}</td>
+                      <td>{{korisnik.get_email()}}</td>
+                      <td>{{korisnik.get_username()}}</td>
+                      <td>{{korisnik.get_password()}}</td>
+                      <td>{{korisnik.get_privilegija()}}</td>
+                      <td>                    
+                          <a href="/obrisi/{{korisnik.get_id()}}">
+                            <i class="material-icons" style="color: rgb(206, 64, 64);">&#xe872;</i>
+                          </a>                         
+                      </td>
+                      <td>
+                        <a href="/update/{{korisnik.get_id()}}">
+                          <i class="material-icons" style="color: rgb(54, 224, 54);">&#xe869;</i>
+                        </a>  
+                      </td>
+                      <td>
+                        
+                      </td>
+                    </tr>                          
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

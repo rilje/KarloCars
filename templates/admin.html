@@ -1,0 +1,67 @@
+{% include 'header.html' %}
+<body class="bg">
+    <div class="container-fluid" style="height: 100vh;">
+        <!-- <pre>{{user}}</pre> -->
+          <div class="row">
+    {%  include 'sidebar.html' %}
+
+
+
+    <div class="col-md-10 p-4 bg-light text-white d-flex flex-wrap-wrap justify-content-center">
+      <div class="row g-4">
+          <!-- Automobili Section -->
+          <div class="col-md-10 border">
+              <div class="bg-light text-white p-3 rounded">
+                  <div class="row">
+                      <!-- Statistika za automobile -->
+                      <div class="col-md-9">
+                          <h5 class="fw-bold text-dark border-bottom pb-2">Automobili</h5>
+                          <ul class="list-unstyled d-flex justify-content-between">
+                            <li class="px-2 py-1 bg-secondary rounded col-md-3">BMW</li>
+                            <li class="px-2 py-1 bg-secondary rounded col-md-3">Mercedes</li>
+                            <li class="px-2 py-1 bg-secondary rounded col-md-3">Audi</li>
+                            <li class="px-2 py-1 bg-secondary rounded col-md-2">Porche</li>
+                            
+                          </ul>
+                      </div>
+                      <!-- Prazan deo za automobile -->
+                      <div class="col-md-3 border-start" style="height: 25vh;">
+                          <h5 class="fw-bold text-dark border-bottom pb-2">Dodatne Info</h5>
+                          <p><a href="/svi_automobili"><button class="btn btn-warning text-white btn-sm col-md-10 text-center">Pogledaj tabelu</button></a></p>
+                          <p><a href="/dodaj_automobil"><button class="btn btn-warning text-white btn-sm col-md-10 text-center">Dodaj automobil</button></a></p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Korisnici Section -->
+          <div class="col-md-10 border">
+              <div class="bg-light text-white p-3 rounded">
+                  <div class="row">
+                      <!-- Statistika za korisnike -->
+                      <div class="col-md-9">
+                          <h5 class="fw-bold text-dark border-bottom pb-2">Korisnici</h5>
+                          <ul class="list-unstyled d-flex justify-content-between">
+                              <li class="px-2 py-1 bg-secondary rounded col-md-3">Admini: {{broj_admina}}</li>
+                              <li class="px-2 py-1 bg-secondary rounded col-md-3">Editori: {{broj_editora}}</li>
+                              <li class="px-2 py-1 bg-secondary rounded col-md-3">Korisnici: {{broj_usera}}</li>
+                              <li class="px-2 py-1 bg-secondary rounded col-md-2">Stat 4</li>
+                              
+                          </ul>
+                      </div>
+                      <!-- Prazan deo za korisnike -->
+                      <div class="col-md-3 border-start" style="height: 25vh;">
+                          <h5 class="fw-bold text-dark border-bottom pb-2">Detaljne Info</h5>
+                          <p><a href="/svi_korisnici"><button class="btn btn-warning text-white btn-sm col-md-10 text-center">Pogledaj tabelu</button></a></p>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+          
+      </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automobil - Prikaz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .carousel-inner {
+            max-width: 65%; /* Ograničava širinu na 65% */
+            margin: 0 auto; /* Centriranje karusela */
+        }
+        .carousel-inner img {
+            width: 100%;
+            height: auto;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .gallery .col {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body class="bg-dark text-white">
+<div class="container-fluid">
+    <div class="row">
+        {% include 'sidebar.html' %}
+        <div class="col-md-10 bg-light " style= "border: solid white thin;">
+            <!-- Carousel -->
+            <div id="carCarousel" class="carousel slide mb-4 p-5" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Slika 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Slika 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://via.placeholder.com/800x400" class="d-block w-100" alt="Slika 3">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Prethodna</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Sledeća</span>
+                </button>
+            </div>
+        
+            <!-- Car Details -->
+            <div class="card bg-light  mb-4">
+                <div class="card-body p-5">
+                    <h2 class="card-title ">{{automobil.marka}} {{automobil.model}} </h2>
+                    <h4>{{automobil.cena}} EUR</h4>
+                    <p>Oglas broj: <b>{{automobil.id}}</b></p>
+                    <div class="row">
+                        
+                        <!-- <div class="col-md-6"> NACIN DA SE ISPISU  NAZIVI I VREDNOSTI ATRIBUTA **************************
+                            {% for naziv, vrednost in atributi.items() %}
+                            <p><strong>{{ naziv }}:</strong> {{ vrednost }}</p>
+                            {% endfor %}
+                        </div>
+                         NACIN DA SE ISPISU  NAZIVI I VREDNOSTI ATRIBUTA ************************** -->
+                        <div class="col-md-12 d-flex justify-content-between p-5">
+                            <div class="col-md-6 p-3">
+                                <h5>Opste informacije</h5>
+                                <ul class="list-group">
+                                    <li class="list-group-item list-group-item-light">Stanje: {{atributi.stanje}}</li>
+                                    <li class="list-group-item list-group-item-light">Marka: {{atributi.marka}}</li>
+                                    <li class="list-group-item list-group-item-light">Model: {{atributi.model}}</li>
+                                    <li class="list-group-item list-group-item-light">Godiste: {{atributi.godiste}}</li>
+                                    <li class="list-group-item list-group-item-light">Kilometraza: {{atributi.kilometraza}}</li>
+                                    <li class="list-group-item list-group-item-light">Karoserija: {{atributi.karoserija}}</li>
+                                    <li class="list-group-item list-group-item-light">Gorivo: {{atributi.gorivo}}</li>
+                                    <li class="list-group-item list-group-item-light">Kubikaza: {{atributi.kubikaza}} cm<sup>3</sup></li>
+                                    <li class="list-group-item list-group-item-light">Snaga motora: {{atributi.snaga}} kW/KS</li>
+                                    <li class="list-group-item list-group-item-light">Fiksna cena: {{atributi.fiksna_cena}}</li>
+                                    <li class="list-group-item list-group-item-light">Zamena: {{atributi.zamena}}</li>
+                                    <li class="list-group-item list-group-item-light">Cena: <b>{{atributi.cena}} EUR</b></li>
+                                    
+                                </ul>
+                                  
+                            </div>
+                            <div class="col-md-6 p-3">
+                                <h5>Dodatne informacije</h5>
+                                <ul class="list-group">
+                                    <li class="list-group-item list-group-item-light">Emisiona klasa motora: {{atributi.klasa_motora}}</li>
+                                    <li class="list-group-item list-group-item-light">Vrsta pogona: {{atributi.pogon}}</li>
+                                    <li class="list-group-item list-group-item-light">Vrsta menjaca: {{atributi.menjac}}</li>
+                                    <li class="list-group-item list-group-item-light">Broj vrata: {{atributi.broj_vrata}}</li>
+                                    <li class="list-group-item list-group-item-light">Broj sedista: {{atributi.broj_sedista}}</li>
+                                    <li class="list-group-item list-group-item-light">Strana volana: {{atributi.strana_volana}}</li>
+                                    <li class="list-group-item list-group-item-light">Klima: {{atributi.klima}}</li>
+                                    <li class="list-group-item list-group-item-light">Boja: {{atributi.boja}} cm<sup>3</sup></li>
+                                    <li class="list-group-item list-group-item-light">Materijal enterijera: {{atributi.materijal_enterijera}} kW/KS</li>
+                                    <li class="list-group-item list-group-item-light">Boja enterijera: {{atributi.boja_enterijera}}</li>
+                                    <li class="list-group-item list-group-item-light">Registrovan do: {{atributi.registrovan_do}}</li>
+                                    <li class="list-group-item list-group-item-light">Poreklo: {{atributi.poreklo}}</li>
+                                    <li class="list-group-item list-group-item-light">Vlasnistvo: {{atributi.vlasnistvo}}</li>
+                                </ul>
+                                  
+                            </div>
+                        </div>
+                        
+                        <hr>
+                        
+                        <div class="col-md-7 p-3">
+                            <h5>Oprema</h5>
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-light">{{atributi.oprema}}</li>
+                            </ul>                              
+                        </div>
+                        <div class="col-md-7 p-3">
+                            <h5>Ostecenja</h5>
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-light">{{atributi.ostecenje}}</li>
+                            </ul>                              
+                        </div>
+                        <div class="col-md-7 p-3">
+                            <h5>Sigurnost</h5>
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-light">{{atributi.sigurnost}}</li>
+                            </ul>                              
+                        </div>
+                        <div class="col-md-7 p-3">
+                            <h5>Opis</h5>
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-light">{{atributi.opis}}</li>
+                            </ul>                              
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Image Gallery -->
+            <h4 class="text-center mb-4">Galerija</h4>
+            <div class="row gallery">
+                <div class="col-6 col-md-4 col-lg-3">
+                    <img src="https://via.placeholder.com/300x200" alt="Galerija 1" class="img-fluid rounded">
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <img src="https://via.placeholder.com/300x200" alt="Galerija 2" class="img-fluid rounded">
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <img src="https://via.placeholder.com/300x200" alt="Galerija 3" class="img-fluid rounded">
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <img src="https://via.placeholder.com/300x200" alt="Galerija 4" class="img-fluid rounded">
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <img src="https://via.placeholder.com/300x200" alt="Galerija 5" class="img-fluid rounded">
+                </div>
+                <!-- Dodaj još slika ako je potrebno -->
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
